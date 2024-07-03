@@ -116,7 +116,7 @@ def start_vm(request):
         ]
         run(command)
         # Assuming you don't need to capture output
-        vm_url = f"http://127.0.0.1:{port}/vnc.html"
+        vm_url = f"http://3.109.29.160:{port}/vnc.html"
         return render(request, 'index.html', {'vm_url': vm_url, 'message': 'Virtual machine started!'})
     else:
         return render(request, 'index.html')
@@ -145,7 +145,7 @@ def req_vm(request):
             'csalab/kalilinux-docker:slim'
         ]
         run(command)
-        vm_url = f"http://13.234.21.111:{port}/vnc.html"
+        vm_url = f"http://3.109.29.160:{port}/vnc.html"
         response_data = {
             'message': 'Virtual machine requested!',
             'vm_url': vm_url,
