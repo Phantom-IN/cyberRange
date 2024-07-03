@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Start Virtual Machine</title>
+</head>
+<body>
+    <h1>Start your Virtual Machine</h1>
+    <form action="{% url 'start_vm' %}" method="post">
+        <button type="submit">Start Virtual Machine</button>
+    </form>
+    {% if vm_url %}
+        <p>{{message}}</p>
+        <a href="{{ vm_url }}">Access Virtual Machine</a>
+    {% endif %} 
+</body>
+</html>
