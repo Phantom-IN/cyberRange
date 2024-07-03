@@ -112,7 +112,7 @@ def start_vm(request):
             '-e', 'SHELL=/bin/bash',
             '-e', f'PASSWORD=kalilinux',
             '--name', f'kalilinux{num}',
-            'csalab/kalilinux-docker:latest'
+            'csalab/kalilinux-docker:slim'
         ]
         run(command)
         # Assuming you don't need to capture output
@@ -142,7 +142,7 @@ def req_vm(request):
             '-e', 'SHELL=/bin/bash',
             '-e', f'PASSWORD={password}',
             '--name', f'kalilinux{num}',
-            'csalab/kalilinux-docker:latest'
+            'csalab/kalilinux-docker:slim'
         ]
         run(command)
         vm_url = f"http://13.234.21.111:{port}/vnc.html"
