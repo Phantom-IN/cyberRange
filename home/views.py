@@ -68,6 +68,7 @@ def start_vm(request):
         ports = [str(port) for port in range(8001, 8101)]
 
     if request.method == 'POST':
+        expiration_time = (datetime.utcnow() + timedelta(hours=1)).strftime('%Y-%m-%dT%H:%M:%SZ')
         command = [
             'docker', 'run', '-d',
             '--hostname', 'kalilinux.lab',
@@ -76,6 +77,7 @@ def start_vm(request):
             '-p', f'{port}:8080',
             '-e', 'SHELL=/bin/bash',
             '-e', f'PASSWORD=kalilinux',
+            '--label', f'expiration={expiration_time}',
             '--name', f'kalilinux{num}',
             'csalab/kalilinux-docker:latest'
         ]
@@ -103,6 +105,7 @@ def start_vm(request):
         ports = [str(port) for port in range(8001, 8101)]
 
     if request.method == 'POST':
+        expiration_time = (datetime.utcnow() + timedelta(hours=1)).strftime('%Y-%m-%dT%H:%M:%SZ')
         command = [
             'docker', 'run', '-d',
             '--hostname', 'kalilinux.lab',
@@ -111,6 +114,7 @@ def start_vm(request):
             '-p', f'{port}:8080',
             '-e', 'SHELL=/bin/bash',
             '-e', f'PASSWORD=kalilinux',
+            '--label', f'expiration={expiration_time}',
             '--name', f'kalilinux{num}',
             'csalab/kalilinux-docker:latest@sha256:8547cae174e2a62cf20d33bea57ce58e5a7f62a8f33884b8351877f7baccce69'
         ]
@@ -133,6 +137,7 @@ def req_vm(request):
 
     if request.method == 'POST':
         password = ''.join(random.choices(string.ascii_letters + string.digits, k=8))
+        expiration_time = (datetime.utcnow() + timedelta(hours=1)).strftime('%Y-%m-%dT%H:%M:%SZ')
         command = [
             'docker', 'run', '-d',
             '--hostname', 'kalilinux.lab',
@@ -141,6 +146,7 @@ def req_vm(request):
             '-p', f'{port}:8080',
             '-e', 'SHELL=/bin/bash',
             '-e', f'PASSWORD={password}',
+            '--label', f'expiration={expiration_time}',
             '--name', f'kalilinux{num}',
             'csalab/kalilinux-docker:latest@sha256:8547cae174e2a62cf20d33bea57ce58e5a7f62a8f33884b8351877f7baccce69'
         ]
