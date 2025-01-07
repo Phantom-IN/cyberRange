@@ -84,7 +84,7 @@ def start_vms(request):
         ]
         run(command)
         # Assuming you don't need to capture output
-        vm_url = f"http://13.126.89.59 :{port}/vnc.html"
+        vm_url = f"http://15.206.134.20:{port}/vnc.html"
         return render(request, 'index.html', {'vm_url': vm_url, 'message': 'Virtual machine started!'})
     else:
         return render(request, 'index.html')
@@ -121,7 +121,7 @@ def start_vm(request):
         ]
         run(command)
         # Assuming you don't need to capture output
-        vm_url = f"http://3.109.29.160:{port}/vnc.html"
+        vm_url = f"http://15.206.134.20:{port}/vnc.html"
         return render(request, 'index.html', {'vm_url': vm_url, 'message': 'Virtual machine started!'})
     else:
         return render(request, 'index.html')
@@ -152,7 +152,7 @@ def req_vm(request):
             'csalab/kalilinux-docker:latest@sha256:8547cae174e2a62cf20d33bea57ce58e5a7f62a8f33884b8351877f7baccce69'
         ]
         run(command)
-        vm_url = f"http://3.109.29.160:{port}/vnc.html"
+        vm_url = f"http://15.206.134.20:{port}/vnc.html"
         response_data = {
             'message': 'Virtual machine requested!',
             'vm_url': vm_url,
@@ -167,6 +167,6 @@ def index(request):
 
 
 def show_vm(request):
-    return render(request, 'show_vm.html',context={'url':'http://3.109.29.160:8007/vnc.html'})
+    return render(request, 'show_vm.html',context={'url':'http://15.206.134.20:8007/vnc.html'})
 
 
