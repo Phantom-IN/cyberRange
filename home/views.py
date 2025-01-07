@@ -60,7 +60,7 @@ used_ports = []
 ports = [str(port) for port in range(8001, 8901)]
 
 @csrf_exempt
-def start_vm(request):
+def start_vms(request):
     port = ports.pop(0)
     num = serialNum.pop(0)
     if num == 201:
